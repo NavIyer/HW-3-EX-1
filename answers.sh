@@ -48,10 +48,19 @@ SELECT employees.Name FROM employees JOIN companies ON employees.Company=compani
 SELECT companies.Name FROM companies JOIN employees ON employees.Company=companies.Name AND employees.Role='Graphic Designer';
 
 
+### Count & Filter ###
+# 1
+select Name FROM students WHERE Points=(SELECT MAX(Points) FROM students);
 
+# 2
+select AVG(Points) FROM students;
 
-select name from students where points=(SELECT MAX(points) from students);
-select AVG(points) from students;
-select COUNT(Name) from students where points=500;
-select Name from students WHERE Name GLOB '*s*';
-select name from students ORDER BY points DESC;
+# 3
+select COUNT(Name) FROM students WHERE Points=500;
+
+# 4
+select Name FROM students WHERE Name LIKE '%s%';
+
+# 5
+select Name FROM students ORDER BY Points DESC;
+
